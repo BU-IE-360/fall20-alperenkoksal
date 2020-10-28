@@ -2,4 +2,4 @@
 
 ## Week 0 (September 19)
 
-[Here](files/)
+[Here](files/example_homework_0.html)
