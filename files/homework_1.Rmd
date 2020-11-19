@@ -16,18 +16,14 @@ library(ggplot2)
 deprem <- read.csv("C:/Users/a_kok/Desktop/Dersler/IE 360/Kodlar/earthquake.csv")
 depremsv <- read.csv("C:/Users/a_kok/Desktop/Dersler/IE 360/Kodlar/depremsv.csv")
 
-# I didn't omit the na values in this data because na values in those rows and columns was not problem for me and I didn't need them while i need the other values in those columns and rows.
-
-# only take the data with richter > 5 and date between 2017 and 2009
-
 deprem <- subset(deprem,deprem["richter"]>5.0)
 
-# only take the years as date
 i = 1
 while(i<=length(deprem[["date"]])){
   deprem[i,"date"] <- substr(deprem[i,"date"],1,4)
   i = i+1
 }
+
 i = 1
 while(i<=length(depremsv[["Ay"]])){
   depremsv[i,"Ay"] <- substr(depremsv[i,"Ay"],1,4)
@@ -37,11 +33,11 @@ while(i<=length(depremsv[["Ay"]])){
 deprem <- subset(deprem,deprem["date"]<= '2017')
 deprem <- subset(deprem,deprem["date"]>= '2009')
 
-# when we plot the histogram we see that in 2011 and 2017 there wwere big earthquakes which have richter >= 6.5 and in 2012 2013 2014 there wwere moderatly big earthquakes which have richter >= 6.0
+# when we plot the histogram we see that in 2011 and 2017 there were big earthquakes which have richter >= 6.5 and in 2012 2013 2014 there were moderately big earthquakes which have richter >= 6.0
 
-ggplot(deprem, aes(richter,)) + geom_histogram(binwidth = 0.1) + facet_grid(date~.)
+ggplot(deprem, aes(richter,)) + geom_histogram(binwidth = 0.05) + facet_grid(date~.)
 
-# when we comparte the search volume "deprem" with the real data of earthquakes we see that when the trend is before the most things searching and verifying the occurrence of the big earthquakes that have higher richter values and have bigger impacts.
+# when we compare the search volume "deprem" with the real data of earthquakes we see that when the trend is before the most things searching and verifying the occurrence of the big earthquakes that have higher richter values and have bigger impacts.
 
 ggplot(depremsv, aes(deprem,)) + geom_boxplot() + facet_grid(Ay~.)
 ggplot(deprem, aes(richter,)) + geom_boxplot() + facet_grid(date~.)
@@ -54,10 +50,9 @@ ggplot(deprem, aes(richter,)) + geom_boxplot() + facet_grid(date~.)
 dolar <- read.csv("C:/Users/a_kok/Desktop/Dersler/IE 360/Kodlar/dolarkuru.csv")
 dolarsv <- read.csv("C:/Users/a_kok/Desktop/Dersler/IE 360/Kodlar/dolarsv.csv")
 
-# omit the na values in date
+
 dolar <- na.omit(dolar)
 
-# only take the years and months as date.
 i = 1
 while(i<=length(dolar[["Tarih"]])){
   dolar[i,"Tarih"] <- substr(dolar[i,"Tarih"],4,10)
@@ -69,9 +64,9 @@ while(i<=length(dolarsv[["Hafta"]])){
   i = i+1
 }
 
-# as we see from histogram dollar Turkish Lira rate is increasing almost constantly from first month of 2020 to now and nowadays the rate has some fluctuations and decrease in value ( maybe the decrease cant be observed very clearly because of the missing data).
+# as we see from histogram dollar Turkish Lira rate is increasing almost constantly from first month of 2020 to now and nowadays the rate has some fluctuations and decrease in value ( maybe the decrease cannot be observed very clearly because of the missing data).
 
-ggplot(dolar, aes(kur,)) + geom_histogram(binwidth = 0.1) + facet_grid(Tarih~.)
+ggplot(dolar, aes(kur,)) + geom_histogram(binwidth = 0.05) + facet_grid(Tarih~.)
 
 # When we try to see the relation of dollar Turkish Lira rate and "dolar alımı" search volume we see that while the rate is increasing constantly the trend is not buying Dollars unless some fluctuations happen in 2020. With the fluctuations and decrease in dollars more dollar purchase happened. ( we can see the fluctuations as the outliers)
 
@@ -83,7 +78,7 @@ ggplot(dolarsv, aes(DolarAlimi,)) + geom_boxplot() + facet_grid(Hafta~.)
 faizyuzde <- read.csv("C:/Users/a_kok/Desktop/Dersler/IE 360/Kodlar/faizyuzde.csv")
 kredibasvuru <- read.csv("C:/Users/a_kok/Desktop/Dersler/IE 360/Kodlar/kredibasvurusv.csv")
 
-# take date as year and month
+
 i = 1
 while(i<=length(faizyuzde[["Tarih"]])){
   faizyuzde[i,"Tarih"] <- substr(faizyuzde[i,"Tarih"],4,10)
@@ -96,10 +91,10 @@ while(i<=length(kredibasvuru[["Hafta"]])){
 }
 
 # as wee see from the histogram interest rates are increasing between 03.2019 to 06.2019 then it start to decrease with the government policies
-ggplot(faizyuzde, aes(Faiz,)) + geom_histogram(binwidth = 0.05) + facet_grid(Tarih~.)
+ggplot(faizyuzde, aes(Faiz,)) + geom_histogram(binwidth = 0.1) + facet_grid(Tarih~.)
 
 
-# while interest rates are decreasing there is a trend of searching for the bank loans.
+# while interest rates are decreasing there is a trend of searching for "kredi basvuru".
 ggplot(faizyuzde, aes(Faiz,)) + geom_boxplot() + facet_grid(Tarih~.)
 ggplot(kredibasvuru, aes(kredi.basvuru,)) + geom_boxplot() + facet_grid(Hafta~.)
 
