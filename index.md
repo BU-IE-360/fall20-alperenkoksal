@@ -10,4 +10,5 @@
 
 ## Week 4 (December 11)
 
-[Here](files/homework_2.ipynb)  are my correlation analysis works
+[Here](files/homework_2.html)  are my correlation analysis works
+[Here](files/homework_2.ipynb) is my ipynb file.
