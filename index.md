@@ -17,3 +17,8 @@
 
 [Here](files/homework_3.html)  are the model and forecast of total number of newly established firms
 [Here](files/homework_3.ipynb) is my ipynb file
+
+## Week 11 (January 13)
+
+[Here](files/homework_4.html)  are my stationary analysis on electricity consumption time series and 2 weeks forecast.
+[Here](files/homework_4.ipynb) is my ipynb file
