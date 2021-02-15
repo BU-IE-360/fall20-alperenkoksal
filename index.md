@@ -24,6 +24,6 @@
 [Here](files/homework_4.ipynb) is my ipynb file
 
 ## Term Project
-
-[Here](files/project.html) is the term project
+[Here](files/project_report.html) is the term project report of group 7
+[Here](files/project.html) is the term project code
 [Here](files/project.ipynb) is my ipynb file
